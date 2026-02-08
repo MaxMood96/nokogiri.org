@@ -24,7 +24,7 @@ def create_tutorial_tasks(source_dir, dest_dir)
 
   dest_paths << create_tutorial_toc_task(source_dir, dest_dir)
 
-  each_glob_match_to_file_pairs("{CNAME,*.{png,svg,css}}", source_dir, dest_dir) do |source_path, dest_path|
+  each_glob_match_to_file_pairs("{CNAME,*.{png,svg,css,ico}}", source_dir, dest_dir) do |source_path, dest_path|
     file dest_path => source_path do
       FileUtils.mkdir_p File.dirname(dest_path)
       FileUtils.cp source_path, dest_path, verbose: true
