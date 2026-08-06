@@ -23,6 +23,13 @@ describe "nokogiri.org" do
     end
   end
 
+  feature "mirror" do
+    it "should serve the libiconv tarball" do
+      visit "/mirror/gnu/libiconv/libiconv-1.18.tar.gz"
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   feature "tidelift URLs" do
     let(:tidelift_url) { "https://tidelift.com/subscription/pkg/rubygems-nokogiri?utm_source=rubygems-nokogiri&utm_medium=referral&utm_campaign=website" }
     let(:tidelift_enterprise_url) { "https://tidelift.com/subscription/pkg/rubygems-nokogiri?utm_source=rubygems-nokogiri&utm_medium=referral&utm_campaign=enterprise" }
